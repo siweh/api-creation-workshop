@@ -5,9 +5,17 @@ const express = require('express');
 const garments = require('./garments.json');
 const app = express();
 
+//TODO enable the req.body object - to allow us to use HTML forms
+//TODO when doing post requests
+//TODO put this before you declare any routes
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 //?Enabling the static folder
 app.use(express.static('public'));
 
+//TODO please check this todo
 //?Import the port number to be used here
 const PORT = process.env.PORT || 4017;
 
@@ -21,9 +29,11 @@ app.get('/api/garments', function(req, res){
 		if (gender != 'All' && season != 'All') {
 			return garment.gender === gender 
 				&& garment.season === season;
-		} else if(gender != 'All') { // if gender was supplied
+		} else if(gender != 'All') { 
+            // if gender was supplied
 			return garment.gender === gender
-		} else if(season != 'All') { // if season was supplied
+		} else if(season != 'All') { 
+            // if season was supplied
 			return garment.season === season
 		}
 		return true;
@@ -49,6 +59,46 @@ app.get('/api/garments/price/:price', function(req, res){
 	res.json({ 
 		garments : filteredGarments
 	});
+});
+
+app.post('/api/garments', (req, res) => {
+
+	// get the fields send in from req.body
+	const {
+		description,
+		img,
+		gender,
+		season,
+		price
+	} = req.body;
+
+	// add some validation to see if all the fields are there.
+	// only 3 fields are made mandatory here
+	// you can change that
+
+	if (!description || !img || !price) {
+		res.json({
+			status: 'error',
+			message: 'Required data not supplied',
+		});
+	} else {
+
+		// you can check for duplicates here using garments.find
+		
+		// add a new entry into the garments list
+		garments.push({
+			description,
+			img,
+			gender,
+			season,
+			price
+		});
+
+		res.json({
+			status: 'success',
+			message: 'New garment added.',
+		});
+	}
 });
 
 app.listen(PORT, function(){
