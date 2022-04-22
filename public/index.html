@@ -7,7 +7,7 @@
 	<title>Missy Tee - clothing store</title>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="./style.css">
 
 	<script class="garmentListTemplate" type="type/script-x" >
 		<div>
@@ -117,18 +117,17 @@
 
 			</div> -->
 		</div>
- 
+		<br>
 		<div class="message hidden" >
 
 		</div>
-
+		<br>
 		<div class="addGarment" >
 			
 			<div class="add button mt1" >
 				<a href="">Add garmet</a>
 			</div>
-
-			<div class="add garment hidden">
+			<div class="add garment">
 				<h2>Add garment</h2>
 				<img src="/images/{{img}}" alt="">
 
@@ -136,28 +135,29 @@
 					
 					<div class="field" >
 						<label for="">Description</label>
-						<input type="text" name="description" class="description" >
+						<input type="text" name="description" class="description">
 					</div>
 					<div class="field" >
 						<label for="">Image</label>
-						<input type="text" name="img" class="img"  >
+						<input type="text" name="img" class="img" >
 					</div>
 					<div class="field">
 						<label for="">Price</label>
-						<input type="number" name="price" step = "0.01" class="price" >
+						<input type="number" name="price" step = "0.01" class="price">
 					</div>
 					<div class="field">
 						<label for="">Gender</label>
 						<div>
-							<input type="text" name="gender" class="gender" >
+							<input type="text" name="gender" class="gender">
 						</div>
 					</div>
 					<div class="field">
 						<label for="">Season</label>
 						<div>
-							<input type="text" name="season" class="season" >
+							<input type="text" name="season" class="season">
 						</div>
 					</div>
+					<br>
 					<div class="mt1">
 						<input type="button" name="action" value="Add" class="addGarmentBtn"  >
 						<input type="button" name="action" value="Hide" class="hideAddGarmetBtn" >

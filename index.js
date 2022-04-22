@@ -72,18 +72,29 @@ app.post('/api/garments', (req, res) => {
 		price
 	} = req.body;
 
+	
+	
+	let findDuplicates = garments.find(garment => {
+		return garment.img === img;
+	});
+	//console.log(toFindDuplicates(garments));
 	// add some validation to see if all the fields are there.
 	// only 3 fields are made mandatory here
 	// you can change that
-
-	if (!description || !img || !price) {
+	//console.log(garments.find(img));
+	if (!description || !img || !price || !season || !gender) {
 		res.json({
 			status: 'error',
-			message: 'Required data not supplied',
+			message: 'Please fill all required fields.',
 		});
-	} else {
-
-		// you can check for duplicates here using garments.find
+	}else if (findDuplicates){
+		// you can check for duplicates here using garments
+		//return results;
+		res.json({
+			status: 'error',
+			message: 'Garment already exists.',
+		});
+	}else {
 		
 		// add a new entry into the garments list
 		garments.push({
@@ -98,6 +109,7 @@ app.post('/api/garments', (req, res) => {
 			status: 'success',
 			message: 'New garment added.',
 		});
+		
 	}
 });
 

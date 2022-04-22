@@ -31,3 +31,16 @@ img {
 	margin: 0.25em;
 	border-radius: 0.5em;
 }
+
+.error{
+	text-align: center;
+	color: red;
+}
+.success{
+	text-align: center;
+	color: green;
+}
+
+.hidden{
+	display: none;
+}

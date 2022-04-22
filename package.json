@@ -4,14 +4,13 @@
   "description": "In thie workshop we explore how to create an API using ExpressJS.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "devStart": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3",
-    "nodemon": "^2.0.15"
+    "express": "^4.17.3"
   },
   "repository": {
     "type": "git",
@@ -20,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/siweh/api-creation-workshop/issues"
   },
-  "homepage": "https://github.com/siweh/api-creation-workshop#readme"
+  "homepage": "https://github.com/siweh/api-creation-workshop#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
