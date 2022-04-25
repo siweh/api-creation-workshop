@@ -19,11 +19,11 @@ function showMessage(value, status){
 	}else if(status === 'success'){
 		message.classList.replace('error', 'success');
 	}
-	
+	message.classList.toggle('hidden');
 	
 	setTimeout(() =>  {
 		message.innerHTML = '';
-		//message.classList.toggle('hidden');
+		message.classList.toggle('hidden');
 	}, 3000);
 }
 
