@@ -75,7 +75,8 @@ app.post('/api/garments', (req, res) => {
 	
 	
 	let findDuplicates = garments.find(garment => {
-		return garment.img === img;
+		if(garment.description === description && garment.gender === gender && garment.img === img && garment.price === price && garment.season === season)
+		return garment.description === description, garment.gender === gender, garment.img === img, garment.price === price, garment.season === season
 	});
 	//console.log(toFindDuplicates(garments));
 	// add some validation to see if all the fields are there.
